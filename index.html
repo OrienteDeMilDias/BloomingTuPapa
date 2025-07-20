@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OrienteDeMilDías</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #004d99;
+      color: white;
+      padding: 20px 0;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 20px;
+    }
+    .tab-button {
+      padding: 10px 25px;
+      cursor: pointer;
+      background-color: #ddd;
+      border-radius: 8px 8px 0 0;
+      font-weight: bold;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+    .tab-button.active {
+      background-color: #004d99;
+      color: white;
+    }
+    .tab-content {
+      max-width: 700px;
+      margin: 0 auto 50px auto;
+      background-color: white;
+      border-radius: 0 8px 8px 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+      padding: 20px;
+      display: none;
+      text-align: left;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    #counter {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .match {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+    }
+    .match h3 {
+      color: #0056b3;
+      margin-bottom: 5px;
+    }
+    .match p, .match ul {
+      margin: 5px 0;
+    }
+    .match img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    @media(max-width: 768px) {
+      #counter {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>OrienteDeMilDías</h1>
+  <p>Blooming Tu Papá</p>
+</header>
+
+<div class="tabs">
+  <div class="tab-button active" data-tab="counter-tab">Contador</div>
+  <div class="tab-button" data-tab="history-tab">Historial de Partidos</div>
+</div>
+
+<div id="counter-tab" class="tab-content active">
+  <div id="counter">Cargando contador...</div>
+</div>
+
+<div id="history-tab" class="tab-content">
+  <h2>Historial Detallado de Partidos</h2>
+  <div class="match-history"></div>
+</div>
+
+<script>
+  // Tabs
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Contador
+  function updateCounter() {
+    const startDate = new Date('2022-10-02T00:00:00Z');
+    const now = new Date();
+    const diff = now - startDate;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('counter').innerHTML =
+      `Han pasado <strong>${days}</strong> días, <strong>${hours}</strong> horas, <strong>${minutes}</strong> minutos y <strong>${seconds}</strong> segundos desde el 2 de octubre de 2022.`;
+  }
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  // Historial real
+  const matches = [
+    {
+      date: '02/10/2022',
+      competition: 'División Profesional',
+      result: 'Oriente Petrolero 1 – 0 Blooming',
+      goals: ['90+5′ – Oriente: Jorge Correa'],
+      image: ''
+    },
+    {
+      date: '07/05/2023',
+      competition: 'División Profesional',
+      result: 'Oriente Petrolero 1 – 1 Blooming',
+      goals: [
+        '82′ – Oriente: Leonardo Villagra',
+        '90+12′ – Blooming: Gastón Rodríguez'
+      ],
+      image: ''
+    },
+    {
+      date: '05/11/2023',
+      competition: 'División Profesional',
+      result: 'Blooming 2 – 1 Oriente Petrolero',
+      goals: [
+        '45′ – Blooming: Fernando Arismendi',
+        '54′ – Blooming: Gastón Rodríguez',
+        '32′ – Oriente: Jonatan Cristaldo'
+      ],
+      image: ''
+    },
+    {
+      date: '25/02/2024',
+      competition: 'Liga Apertura / Copa Paceña',
+      result: 'Blooming 2 – 1 Oriente Petrolero',
+      goals: [
+        '29′ – Blooming: Richet Gómez',
+        '38′ – Blooming: César Menacho',
+        '25′ – Oriente: Hugo Rojas'
+      ],
+      image: ''
+    },
+    {
+      date: '10/03/2024',
+      competition: 'División Profesional',
+      result: 'Oriente Petrolero 0 – 0 Blooming',
+      goals: ['No se registraron goles, penales ni goles anulados'],
+      image: ''
+    },
+    {
+      date: '11/08/2024',
+      competition: 'Torneo Clausura',
+      result: 'Oriente Petrolero 0 – 1 Blooming',
+      goals: ['8′ – Blooming: Othoniel Arce'],
+      image: ''
+    },
+    {
+      date: '08/12/2024',
+      competition: 'División Profesional',
+      result: 'Blooming 0 – 0 Oriente Petrolero',
+      goals: ['Sin goles ni incidencias registradas'],
+      image: ''
+    },
+    {
+      date: '22/06/2025',
+      competition: 'División Profesional',
+      result: 'Blooming 2 – 1 Oriente Petrolero',
+      goals: [
+        '13′ – Oriente: Ricardo Centurión',
+        '37′ – Blooming: Marc Enoumba',
+        '62′ – Blooming: Samuel Garzón',
+        'Además: pénalti fallado por Centurión a los 50′'
+      ],
+      image: ''
+    }
+  ];
+
+  function displayMatches() {
+    const container = document.querySelector('.match-history');
+    container.innerHTML = '';
+    matches.forEach(match => {
+      const div = document.createElement('div');
+      div.classList.add('match');
+      div.innerHTML = `
+        <h3>${match.date} – ${match.competition}</h3>
+        <p><strong>Resultado:</strong> ${match.result}</p>
+        <p><strong>Goles:</strong></p>
+        <ul>${match.goals.map(g => `<li>${g}</li>`).join('')}</ul>
+        ${match.image ? `<img src="${match.image}" alt="Partido ${match.date}">` : ''}
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  displayMatches();
+</script>
+
+</body>
+</html>
