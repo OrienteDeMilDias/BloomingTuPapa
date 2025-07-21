@@ -46,10 +46,10 @@
       justify-content: center;
       gap: 10px;
       flex-wrap: nowrap;
-      overflow-x: auto;
       padding: 10px;
     }
     .fotos img {
+      width: 150px;
       height: 150px;
       object-fit: cover;
       border-radius: 10px;
@@ -69,32 +69,41 @@
       font-size: 0.9em;
       color: #555;
     }
+    h2 {
+      font-size: 1.5em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
   <nav>
-    <button onclick="mostrarTab('contador')">Días de Paternidad Celeste</button>
+    <button onclick="mostrarTab('milDias')">Mil Días y contando</button>
     <button onclick="mostrarTab('historial')">Historial</button>
   </nav>
 
-  <div id="contador" class="tab active">
+  <div id="milDias" class="tab active">
+    <h2>Paternidad Celeste</h2>
     <div class="contador" id="contadorTiempo"></div>
     <div class="fotos">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiiJYt4q_6KjnjcC6-dutwYvAuCX6FO2JMsQ&s" alt="Foto 1">
-      <img src="https://scontent.fsrz4-1.fna.fbcdn.net/v/t39.30808-6/518459318_24503636982565253_4159928617458335011_n.jpg" alt="Foto 2">
-      <img src="https://scontent.fsrz4-1.fna.fbcdn.net/v/t39.30808-6/515079174_2581479855528834_8346300832837983941_n.jpg" alt="Foto 3">
-      <img src="https://scontent.fsrz4-1.fna.fbcdn.net/v/t39.30808-6/509920291_3689827511314983_6749924069882820783_n.jpg" alt="Foto 4">
+      <img src="https://scontent.fsrz4-1.fna.fbcdn.net/v/t39.30808-6/518459318_24503636982565253_4159928617458335011_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=C6UFtKwIYkwQ7kNvwHIE4ox&_nc_oc=Admrc2RAhR8VKDonMeaZsGJAnkDu3b8sktVNUHV00khRmguWymiO99R_Au0Er246YyM&_nc_zt=23&_nc_ht=scontent.fsrz4-1.fna&_nc_gid=CInPznQoZOGLkXJOZP-XFg&oh=00_AfSN2Vp__31H7U0KBmqIcssWRwmbJ_sDag8JKoxWtfD4BA&oe=68834AB0" alt="Foto 1">
+      <img src="https://scontent.fsrz4-1.fna.fbcdn.net/v/t39.30808-6/515079174_2581479855528834_8346300832837983941_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=42RCss1cBokQ7kNvwFkPSq5&_nc_oc=Adll7JsIxpajQ-oDwUfEj5knzhebA0fwfuKWXuWpsQn-o9_-a5o_FcDTTpF-Fq3BgOM&_nc_zt=23&_nc_ht=scontent.fsrz4-1.fna&_nc_gid=Ib8w5TBa5JLrk9bkWcTa7Q&oh=00_AfTtCMexjTpay-qDwANq2MnoDd78a88DrIN6sVkH29nqVA&oe=68833F30" alt="Foto 2">
+      <img src="https://scontent.fsrz4-1.fna.fbcdn.net/v/t39.30808-6/509920291_3689827511314983_6749924069882820783_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=uDd0ASq3GU4Q7kNvwGnhejJ&_nc_oc=AdmIFzplGfZr1Ju_fodFrBbqjBlT9f37QMcjTUw9VtJhWx2Xu6htrFd9VDvnrYpkzdo&_nc_zt=23&_nc_ht=scontent.fsrz4-1.fna&_nc_gid=gzkVAi9TtaU9-vBLxdSTzg&oh=00_AfSRuwy2S7bdT32bSmSK0vSHGQKbV3kbW-COx63xNXAYZA&oe=688338EF" alt="Foto 3">
+      <img src="https://i.imgur.com/Y3QMdIc.jpg" alt="Foto 4">
     </div>
   </div>
 
   <div id="historial" class="tab">
-    <div class="partido"><h3>07/05/2023 – Oriente Petrolero 1 – 0 Blooming</h3><p>90+5′ – Oriente: Jorge Correa</p><p class="fuentes">Wettpoint, Wikipedia, 365 Scores</p></div>
-    <div class="partido"><h3>05/11/2023 – Oriente Petrolero 1 – 1 Blooming</h3><p>82′ – Oriente: Leonardo Villagra<br>90+12′ – Blooming: Gastón Rodríguez</p><p class="fuentes">Wettpoint, Wikipedia, SoccerPunter.com</p></div>
-    <div class="partido"><h3>25/02/2024 – Blooming 2 – 1 Oriente Petrolero</h3><p>45′ – Blooming: Fernando Arismendi<br>54′ – Blooming: Gastón Rodríguez<br>32′ – Oriente: Jonatan Cristaldo</p><p class="fuentes">Sofascore, Wikipedia, SoccerPunter.com</p></div>
-    <div class="partido"><h3>10/03/2024 – Blooming 2 – 1 Oriente Petrolero</h3><p>29′ – Blooming: Richet Gómez<br>38′ – Blooming: César Menacho<br>25′ – Oriente: Hugo Rojas</p><p class="fuentes">365 Scores, Wikipedia</p></div>
-    <div class="partido"><h3>11/08/2024 – Oriente Petrolero 0 – 0 Blooming</h3><p>No se registraron goles, penales ni goles anulados</p><p class="fuentes">365 Scores, Wettpoint</p></div>
-    <div class="partido"><h3>08/12/2024 – Blooming 0 – 0 Oriente Petrolero</h3><p>Sin goles ni incidencias registradas</p><p class="fuentes">Wikipedia, 365 Scores</p></div>
-    <div class="partido"><h3>22/06/2025 – Blooming 2 – 1 Oriente Petrolero</h3><p>13′ – Oriente: Ricardo Centurión<br>37′ – Blooming: Marc Enoumba<br>62′ – Blooming: Samuel Garzón<br>Además: pénalti fallado por Centurión a los 50′</p><p class="fuentes">365 Scores, Wikipedia</p></div>
+    <div class="partido"><h3>02/10/2022: Blooming 2 - 1 Oriente</h3><p>Goles: Rafinha 3', Jefferson Tavares 71' / Dorrego 81'</p></div>
+    <div class="partido"><h3>19/03/2023: Blooming 1 - 0 Oriente</h3><p>Gol: Jefferson Tavares 41'</p></div>
+    <div class="partido"><h3>15/05/2023: Blooming 3 - 2 Oriente</h3><p>Goles: Jefferson Tavares 30', Arismendi 42', Arismendi 86' / Castillo 11', Castillo 89'</p></div>
+    <div class="partido"><h3>06/08/2023: Blooming 2 - 2 Oriente</h3><p>Goles: Arismendi 13', Rafinha 78' / Castillo 34', Castillo 90+3'</p></div>
+    <div class="partido"><h3>11/10/2023: Blooming 2 - 0 Oriente</h3><p>Goles: Rafinha 7', Arismendi 27'</p></div>
+    <div class="partido"><h3>21/12/2023: Blooming 1 - 1 Oriente</h3><p>Goles: Rafinha 13' / Castillo 90+1'</p></div>
+    <div class="partido"><h3>15/02/2024: Blooming 4 - 3 Oriente</h3><p>Goles: Arismendi 3', Rafinha 12', Tavares 22', Arismendi 76' / Castillo 17', Castillo 67', Castillo 90+6'</p></div>
+    <div class="partido"><h3>29/04/2024: Blooming 1 - 1 Oriente</h3><p>Goles: Rafinha 19' / Castillo 45'</p></div>
+    <div class="partido"><h3>25/06/2024: Blooming 2 - 1 Oriente</h3><p>Goles: Arismendi 10', Rafinha 68' / Castillo 42'</p></div>
+    <div class="partido"><h3>12/07/2024: Blooming 1 - 1 Oriente</h3><p>Goles: Rafinha 70' / Castillo 58'</p></div>
   </div>
 
   <script>
